@@ -48,3 +48,20 @@ def compute_validation_acc(model,features_test,target):
     fig.tight_layout()
     fig.subplots_adjust(top=0.95)
     #plt.show()
+    
+from pyathena import connect
+from pyathena.pandas_cursor import PandasCursor
+import pandas as pd
+
+def get_query_result(query):
+    query_result = cursor.execute(query).as_pandas()
+    return query_result
+
+cursor = connect(profile_name="profile_name”,
+                 s3_staging_dir="s3_bucket_for_athena_results”,
+                 database=db_name,
+                 region_name=“region_name”,
+                 cursor_class=PandasCursor).cursor()
+
+query=“query string”
+pandas_dataframe=get_query_result(query)
