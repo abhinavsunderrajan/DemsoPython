@@ -98,16 +98,18 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 /bin/
-<<<<<<< HEAD
 
 
 #properties files
 *.properties
 
+*.csv
+*.parquet
 
 #json
 *.json
-=======
+
 /.metadata/
 /.recommenders/
->>>>>>> develop
+.ipynb_checkpoints
+
