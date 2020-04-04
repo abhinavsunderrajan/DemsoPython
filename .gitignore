@@ -105,6 +105,7 @@ vignettes/*.pdf
 
 *.csv
 *.parquet
+*.xls
 
 #json
 *.json
