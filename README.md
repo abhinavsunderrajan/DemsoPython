@@ -1,4 +1,4 @@
-# DemsoPython
+# DemosPython
 The deep learning project is on object detection for detecting traffic signs using the fast.ai (version 0.7) library. The techniques taught by Jeremy Howard were very helpful and the fast.ai library is a breeze to use. I find that 3 papers are very useful for learning Object detection using DL from scratch.
 
 1) Redmon, Joseph, Santosh Divvala, Ross Girshick, and Ali Farhadi. "You only look once: Unified, real-time object detection." In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 779-788. 2016.
