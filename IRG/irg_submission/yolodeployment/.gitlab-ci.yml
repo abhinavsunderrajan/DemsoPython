@@ -1,0 +1,52 @@
+variables:
+  APPLICATION_NAME: yolo-test-32711
+  CONTAINER_NAME: <conatiner-registry>/yolo-test-32711:latest
+
+stages:
+  - test
+  - build
+  - staging
+  - deployment
+
+task-test:
+  stage: test
+  script:
+    - echo Testing $APPLICATION_NAME
+    - echo $HOME
+  only:
+    - tags
+
+task-build:
+  stage: build
+  script:
+    - echo $APPLICATION_NAME
+    - docker build -t $CONTAINER_NAME .
+    - docker push $CONTAINER_NAME
+  only:
+    - tags
+
+task-deploy-to-staging:
+  stage: staging
+  script:
+    - unset https_proxy
+    - unset http_proxy
+    - kubectl internal commands
+
+
+  only:
+    - /^test-.*$/
+  except:
+    - branches
+
+task-deploy-to-production:
+  type: deployment
+  script:
+    - echo "W3 production"
+    - unset https_proxy
+    - unset http_proxy
+    - kubectl internal commands
+
+  only:
+    - /^prod-.*$/
+  except:
+    - branches
